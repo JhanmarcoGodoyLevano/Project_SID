@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Enviar ETH desde Metamask</h1>
+
+  <button (click)="connectWallet()">Conectar Metamask</button>
+
+  <div *ngIf="account">
+    <p>Cuenta conectada: {{ account }}</p>
+
+    <label for="recipient">Dirección del destinatario:</label>
+    <input id="recipient" [(ngModel)]="recipient" placeholder="0x..." />
+
+    <label for="amount">Cantidad de ETH a enviar:</label>
+    <input id="amount" [(ngModel)]="amount" type="number" placeholder="0.1" />
+
+    <button (click)="sendEth()">Enviar ETH</button>
+
+    <div *ngIf="transactionHash">
+      <p>Transacción completada: {{ transactionHash }}</p>
+    </div>
+  </div>
+
+  <div *ngIf="errorMessage">
+    <p class="error">{{ errorMessage }}</p>
+  </div>
+</div>
